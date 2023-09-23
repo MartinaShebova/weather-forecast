@@ -1,0 +1,19 @@
+/* src/Footer.css */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 14px;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Style the copyright notice */
+footer p::before {
+    content: "\00a9";
+    /* Unicode for the copyright symbol */
+    margin-right: 5px;
+}

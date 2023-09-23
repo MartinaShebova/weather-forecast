@@ -3,6 +3,7 @@ import Layout from "./components/layout/Layout";
 import CurrentWeather from "./components/currentWeather/CurrentWeather";
 import UserLocationWeather from "./components/userLocationWeather/UserLocationWeather";
 import About from "./components/about/About";
+import { currentWeatherLoader } from "./components/currentWeather/loader";
 
 export default createBrowserRouter([
     {
@@ -11,7 +12,8 @@ export default createBrowserRouter([
         children: [
             {
                 index: true,
-                element: <CurrentWeather />
+                element: <CurrentWeather />,
+                loader: currentWeatherLoader
             },
             {
                 path: "your-location",

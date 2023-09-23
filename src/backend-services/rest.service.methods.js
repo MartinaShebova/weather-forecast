@@ -1,19 +1,10 @@
 import axios from 'axios';
 
 export function getRequest(endpointUrl) {
-
-    return new Promise((resolve, reject) => {
-        axios({
+    return axios({
             method: 'get',
             url: endpointUrl,
         })
-            .then((data) => {
-                resolve(data.data);
-            })
-            .catch((error) => {
-                reject(error);
-            })
-    });
 }
 
 export function postRequest(endpointUrl, dataToSend) {

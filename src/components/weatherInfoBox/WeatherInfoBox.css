@@ -1,0 +1,9 @@
+.weather-box {
+    background: linear-gradient(to bottom, #3498db, #87ceeb, #ffffff);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    margin: 10px;
+    transition: box-shadow 0.3s ease-in-out;
+    cursor: pointer;
+}

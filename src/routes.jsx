@@ -1,9 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
-import Layout from "./components/layout/Layout";
-import CurrentWeather from "./components/currentWeather/CurrentWeather";
-import UserLocationWeather from "./components/userLocationWeather/UserLocationWeather";
-import About from "./components/about/About";
-import { currentWeatherLoader } from "./components/currentWeather/loader";
+import Layout from './layout/Layout';
+import UserLocationWeather from "./pages/userLocationWeather/UserLocationWeather";
+import About from "./pages/about/About";
+import FavouriteCityWeather from "./pages/favouriteCityWeather/FavouriteCityWeather";
+import { favouriteCityLoader } from "./pages/favouriteCityWeather/FavouriteCityWeather";
 
 export default createBrowserRouter([
     {
@@ -12,8 +12,8 @@ export default createBrowserRouter([
         children: [
             {
                 index: true,
-                element: <CurrentWeather />,
-                loader: currentWeatherLoader
+                element: <FavouriteCityWeather />,
+                loader: favouriteCityLoader
             },
             {
                 path: "your-location",

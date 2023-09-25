@@ -5,11 +5,11 @@ import { GET_CITY_WEATHER, GET_5_DAYS_WEATHER_FORECAST_URL_BY_LOCATION } from ".
 import { useLoaderData } from 'react-router-dom';
 
 function FavouriteCityWeather() {
-    const fiveDaysWeatherData = useLoaderData().fiveDaysWeather;
+    const fiveDaysWeatherData = useLoaderData().fiveDaysWeather.data;
 
     return <>
         <FavouriteCityCurrentWeather />
-        <FiveDaysWeather fiveDaysWeatherData={fiveDaysWeatherData} />
+        <FiveDaysWeather cityName={fiveDaysWeatherData.city.name} fiveDaysWeatherData={fiveDaysWeatherData.list} />
     </>
 }
 
@@ -18,6 +18,6 @@ export default FavouriteCityWeather;
 export async function favouriteCityLoader() {
     return {
         currentWeather: (await getRequest(GET_CITY_WEATHER())).data,
-        fiveDaysWeather: (await getRequest(GET_5_DAYS_WEATHER_FORECAST_URL_BY_LOCATION())).data.list,
+        fiveDaysWeather: (await getRequest(GET_5_DAYS_WEATHER_FORECAST_URL_BY_LOCATION())),
     }
 }

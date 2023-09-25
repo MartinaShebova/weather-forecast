@@ -2,6 +2,7 @@ import { getRequest } from "../../backend-services/rest.service.methods";
 import { GET_5_DAYS_WEATHER_FORECAST_URL_BY_COORDINATES } from "../../backend-services/endpointsUrls";
 import { useEffect, useState } from "react";
 import FiveDaysWeather from "../../components/fiveDaysWeather/FiveDaysWeather";
+import LoadingSpinner from "../../utils/LoadingSpinner";
 
 function UserLocationWeather() {
 
@@ -1498,9 +1499,7 @@ function UserLocationWeather() {
     // }
 
     return <>
-        {weatherInfo && 
-        <FiveDaysWeather cityName={weatherInfo.cityName} fiveDaysWeatherData={weatherInfo.data} showHourlyForecast={true} />
-        }
+        {weatherInfo ? <FiveDaysWeather cityName={weatherInfo.cityName} fiveDaysWeatherData={weatherInfo.data} showHourlyForecast={true} /> : <LoadingSpinner />}
     </>
 }
 

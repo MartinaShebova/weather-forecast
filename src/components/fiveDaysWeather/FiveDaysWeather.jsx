@@ -9,7 +9,7 @@ function FiveDaysWeather({ fiveDaysWeatherData, showHourlyForecast }) {
     const [showByHours, setShowByHours] = useState(false);
     const [dayDate, setDayDate] = useState(null);
 
-    const filterFiveDaysWeatherAtTwelve = () => {
+    const filterFiveDaysWeather = () => {
         // Get today's date
         const today = new Date().toLocaleDateString();
 
@@ -78,7 +78,7 @@ function FiveDaysWeather({ fiveDaysWeatherData, showHourlyForecast }) {
         <div>
             <h2>Your 5 days weather forecast</h2>
             <div className="forecast-container">
-                {filterFiveDaysWeatherAtTwelve().map(day => (
+                {filterFiveDaysWeather().map(day => (
                     <div key={Math.random() + 1} className="weather-box" onClick={(e) => {
                         setDayDate(day.unixDate);
                         showHourlyForecastHandler(e);

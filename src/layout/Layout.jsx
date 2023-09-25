@@ -4,20 +4,10 @@ import { Outlet } from 'react-router-dom';
 import './Layout.css';
 
 function Layout() {
-
-	// useEffect(() => {
-	// 	getRequest(GET_CITY_WEATHER())
-	// 		.then((data) => {
-	// 			console.log(data);
-
-	// 		})
-
-	// }, []);
-
 	return (
 		<div className="Layout">
 			<Header />
-				<Outlet />
+			<Outlet />
             <Footer />
 		</div>
 	);

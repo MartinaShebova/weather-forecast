@@ -1,8 +1,7 @@
-import WeatherInfoBox from "../weatherInfoBox/WeatherInfoBox";
-import { GLOBAL_GET_WEATHER_ICON_URL } from "../../globals";
-import './WeatherByHoursSlider.css';
+import { GET_WEATHER_ICON_URL } from "../../backend-services/endpointsUrls";
+import './WeatherByHours.css';
 
-function WeatherByHoursSlider({ fiveDaysWeatherData, date }) {
+function WeatherByHours({ fiveDaysWeatherData, date }) {
 
     const retrieveDataForCurrentDay = () => {
         let currentDayInfo = [];
@@ -24,14 +23,13 @@ function WeatherByHoursSlider({ fiveDaysWeatherData, date }) {
 
     return <div className="detailed-forecast-wrapper">
         {retrieveDataForCurrentDay().map(info => {
-
             return <div key={Math.random() + 1} className="detailed-box">
                 <div className="weather-icon">
                     <img
-                        src={GLOBAL_GET_WEATHER_ICON_URL(info.weather[0].icon)}
+                        src={GET_WEATHER_ICON_URL(info.weather[0].icon)}
                         alt={info.weather[0].main}
                     />
-                    <div className="temp">{info.main.temp}°C</div>
+                    <div className="temp">{info.main.temp.toFixed(0)}°C</div>
                 </div>
 
                 <div className="weather-details">
@@ -39,13 +37,13 @@ function WeatherByHoursSlider({ fiveDaysWeatherData, date }) {
                         {info.dt_txt}
                     </div>
                     <div className="wind">
-                        Feels like: {info.main.feels_like}
+                        Feels like: {info.main.feels_like.toFixed(0)}°C
                     </div>
                     <div className="wind">
-                        Min temp: {info.main.temp_min}
+                        Min temp: {info.main.temp_min.toFixed(0)}°C
                     </div>
                     <div className="wind">
-                        Max temp: {info.main.temp_max}
+                        Max temp: {info.main.temp_max.toFixed(0)}°C
                     </div>
                     <div className="wind">
                         Humidity: {info.main.humidity}
@@ -62,4 +60,4 @@ function WeatherByHoursSlider({ fiveDaysWeatherData, date }) {
     </div>
 }
 
-export default WeatherByHoursSlider;
+export default WeatherByHours;

@@ -1,13 +1,13 @@
-import { useLoaderData } from 'react-router-dom';
-import { GLOBAL_GET_WEATHER_ICON_URL } from '../../globals';
-import { useEffect, useState } from 'react';
-import WeatherByHoursSlider from '../weatherByHoursSlider/WeatherByHoursSlider';
+import { useState } from 'react';
+import WeatherByHours from '../weatherByHours/WeatherByHours';
 import WeatherInfoBox from '../weatherInfoBox/WeatherInfoBox';
 import './FiveDaysWeather.css';
 
-function FiveDaysWeather({ fiveDaysWeatherData, showHourlyForecast }) {
+function FiveDaysWeather({ cityName, fiveDaysWeatherData, showHourlyForecast }) {
+
     const [showByHours, setShowByHours] = useState(false);
     const [dayDate, setDayDate] = useState(null);
+    const [isDetailedViewActivate, setIsDetailedViewActivate] = useState(false);
 
     const filterFiveDaysWeather = () => {
         // Get today's date
@@ -36,8 +36,6 @@ function FiveDaysWeather({ fiveDaysWeatherData, showHourlyForecast }) {
                 } else {
                     dailyForecasts[forecastDate].temperatureSum += forecast.main.temp;
                     dailyForecasts[forecastDate].count += 1;
-                    // Use the last forecast's icon and description for the day
-
                     dailyForecasts[forecastDate].icon = forecast.weather[0].icon;
                     dailyForecasts[forecastDate].description = forecast.weather[0].description;
                     dailyForecasts[forecastDate].unixTime = forecast.dt_txt;
@@ -67,6 +65,7 @@ function FiveDaysWeather({ fiveDaysWeatherData, showHourlyForecast }) {
     }
 
     const showHourlyForecastHandler = (e) => {
+        //Show detailed forecast only on user's location
         if (showHourlyForecast) {
             setShowByHours(true);
         } else {
@@ -75,14 +74,19 @@ function FiveDaysWeather({ fiveDaysWeatherData, showHourlyForecast }) {
     }
 
     return <>
-        <div>
-            <h2>Your 5 days weather forecast</h2>
+        <div className='five-days-forecast-wrapper'>
+            <h2>{cityName} - 5 days weather forecast</h2>
             <div className="forecast-container">
-                {filterFiveDaysWeather().map(day => (
-                    <div key={Math.random() + 1} className="weather-box" onClick={(e) => {
-                        setDayDate(day.unixDate);
-                        showHourlyForecastHandler(e);
-                    }}>
+                {filterFiveDaysWeather().map((day, i) => (
+                    <div
+                        key={Math.random() + 1}
+                        className={`${i === isDetailedViewActivate ? "active-box" : ""} weather-box`}
+                        onClick={(e) => {
+                            setDayDate(day.unixDate);
+                            showHourlyForecastHandler(e);
+                            setIsDetailedViewActivate(i);
+                        }}
+                    >
                         <WeatherInfoBox
                             iconName={day.icon}
                             description={day.description}
@@ -94,9 +98,8 @@ function FiveDaysWeather({ fiveDaysWeatherData, showHourlyForecast }) {
                 ))}
             </div>
         </div>
-        {showByHours && <WeatherByHoursSlider date={dayDate} fiveDaysWeatherData={fiveDaysWeatherData} />}
+        {showByHours && <WeatherByHours date={dayDate} fiveDaysWeatherData={fiveDaysWeatherData} />}
     </>
-    return 1
 }
 
 export default FiveDaysWeather;

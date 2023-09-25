@@ -8,7 +8,6 @@ import { favouriteCityLoader } from "./pages/favouriteCityWeather/FavouriteCityW
 export default createBrowserRouter([
     {
         element: <Layout />,
-        // loader: rootLoader,
         children: [
             {
                 index: true,

@@ -1,7 +1,7 @@
 .detailed-forecast-wrapper{
     display: flex;
     justify-content: center;
-    background: #a09797;
+    background: #87ceeb;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     padding: 20px;
@@ -10,6 +10,15 @@
 }
 
 .detailed-box{
-    padding-right: 20px;
+    padding: 20px;
+}
+
+.detailed-box:not(:last-child){
     border-right: 2px solid #333333;
+}
+
+.temp{
+    font-size: 24px;
+    color: #ffffff;
+    font-weight: 600;
 }

@@ -1,15 +1,9 @@
 import './Header.css';
 import { NavLink } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
 
 function Header() {
-    const navigate = useNavigate();
-
     return (
         <header>
-            <div className="logo">
-                <img src="/assets/weather-forecast-logo.jpeg" alt="Weather forecast logo" onClick={() => navigate("/")}/>
-            </div>
             <nav>
                 <ul className="navigation">
                     <li>

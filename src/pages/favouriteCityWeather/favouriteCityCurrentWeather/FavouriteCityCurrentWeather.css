@@ -1,0 +1,21 @@
+.current-weather-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.current-weather-data{
+    margin-left: 20px;
+}
+
+.fav-city-image {
+    overflow: hidden; /* Hide overflowing parts of the image */
+    border-radius: 50%; /* Make it a circle */
+}
+
+.fav-city-image img{
+    filter: grayscale(80%);
+    width: 100%; /* Use the full width of the circle */
+    height: 100%; /* Use the full height of the circle */
+    object-fit: cover; /* Maintain aspect ratio and cover the circle */
+}

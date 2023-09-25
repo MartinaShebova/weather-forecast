@@ -7,3 +7,21 @@
     transition: box-shadow 0.3s ease-in-out;
     cursor: pointer;
 }
+
+.weather-box .box-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.weather-box .weather-icon{
+    display: flex;
+    align-items: center;
+}
+
+.weather-box .temp{
+    font-size: 30px;
+    color: #ffffff;
+    font-weight: 700;
+}

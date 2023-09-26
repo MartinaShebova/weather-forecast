@@ -1,10 +1,12 @@
 import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import WeatherByHours from '../weatherByHours/WeatherByHours';
 import WeatherInfoBox from '../weatherInfoBox/WeatherInfoBox';
 import './FiveDaysWeather.css';
 
-function FiveDaysWeather({ cityName, fiveDaysWeatherData, showHourlyForecast }) {
+function FiveDaysWeather({ cityName, fiveDaysWeatherData }) {
 
+    const currentLocation = useLocation();
     const [showByHours, setShowByHours] = useState(false);
     const [dayDate, setDayDate] = useState(null);
     const [isDetailedViewActivate, setIsDetailedViewActivate] = useState(false);
@@ -64,12 +66,13 @@ function FiveDaysWeather({ cityName, fiveDaysWeatherData, showHourlyForecast }) 
         return allInfo;
     }
 
-    const showHourlyForecastHandler = (e) => {
-        //Show detailed forecast only on user's location
-        if (showHourlyForecast) {
-            setShowByHours(true);
-        } else {
+    const showHourlyForecastHandler = (e, i, day) => {
+        if (currentLocation.pathname === "/") {
             e.preventDefault();
+        } else {
+            setDayDate(day.unixDate);
+            setShowByHours(true);
+            setIsDetailedViewActivate(i);
         }
     }
 
@@ -81,11 +84,7 @@ function FiveDaysWeather({ cityName, fiveDaysWeatherData, showHourlyForecast }) 
                     <div
                         key={Math.random() + 1}
                         className={`${i === isDetailedViewActivate ? "active-box" : ""} weather-box`}
-                        onClick={(e) => {
-                            setDayDate(day.unixDate);
-                            showHourlyForecastHandler(e);
-                            setIsDetailedViewActivate(i);
-                        }}
+                        onClick={(e) => showHourlyForecastHandler(e, i, day)}
                         data-testid="weather-box"
                     >
                         <WeatherInfoBox

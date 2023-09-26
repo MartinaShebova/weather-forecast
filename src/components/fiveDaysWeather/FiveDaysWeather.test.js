@@ -1452,8 +1452,7 @@ const mockProps = {
             },
             "dt_txt": "2023-09-29 15:00:00"
         }
-    ],
-    showHourlyForecast: true
+    ]
 }
 
 describe('5 days weather forecast tests', () => {

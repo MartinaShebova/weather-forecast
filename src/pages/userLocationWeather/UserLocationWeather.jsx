@@ -1499,7 +1499,13 @@ function UserLocationWeather() {
     // }
 
     return <>
-        {weatherInfo ? <FiveDaysWeather cityName={weatherInfo.cityName} fiveDaysWeatherData={weatherInfo.data} showHourlyForecast={true} /> : <LoadingSpinner />}
+        {
+            weatherInfo ?
+                <div className="your-location-weather-container">
+                    <FiveDaysWeather cityName={weatherInfo.cityName} fiveDaysWeatherData={weatherInfo.data} />
+                </div> :
+                <LoadingSpinner />
+        }
     </>
 }
 

@@ -1,9 +1,36 @@
-# Weather forecast getting started
+## Weather forecast app
+Created with create-react-app
 
-The project was created by create-react-app template
-It uses and demands NODE.js version 16
+### Host
+The project is currently hosted in Firebase under the following domain
 
-## How to run
+https://weather-forecast-194b6.web.app/
+
+### Prerequisites
+
+This is an example of how to list things you need to use the software and how to install them.
+* NODE.js v16 and above
+
+### Built With
+
+* [![React][React.js]][React-url]
+
+### Installation
+
+1. Clone the repo
+   ```sh
+   git clone https://github.com/MartinaShebova/weather-forecast.git
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
+3. Start project
+   ```sh
+   npm start
+   ```
+
+## Getting Started
 
 In the project directory, you can run:
 
@@ -15,10 +42,6 @@ Open http://localhost:3000 to view it in your browser.
 ### `npm test`
 
 Launches the test runner.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.
 
 ### `Third party libraries used in the project`
 
@@ -35,6 +58,7 @@ Builds the app for production to the `build` folder.
 - Proptypes/Typescript
 - Service worker for API and icons caching
 - CSS modules or SASS
+- CSS variables
 - Dropdown with selecting worldwide location and displaying information
 - Lazy loading if the project becomes more complex
 
@@ -42,3 +66,8 @@ Builds the app for production to the `build` folder.
 
 - More tests
 - Better styling
+- Add favicon
+
+## License
+
+Distributed under the MIT License. See `LICENSE.txt` for more information.

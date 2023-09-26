@@ -7,12 +7,12 @@ function Header() {
             <nav>
                 <ul className="navigation">
                     <li>
-                        <NavLink exact to="/" activeClassName="active-link">
+                        <NavLink to="/">
                             Favourite city
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/your-location" activeClassName="active-link">
+                        <NavLink to="/your-location">
                             Your location
                         </NavLink>
                     </li>

@@ -8,7 +8,6 @@ https://weather-forecast-194b6.web.app/
 
 ## Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
 * NODE.js v16 and above
 
 ## Built With
@@ -51,6 +50,7 @@ Launches the test runner.
 - axios - v1.5.0 - used for REST operations
 - react-router-dom - v6.16.0 - used for the project's routing
 - react-spinners - v0.13.8 - used for projects's loading animanion
+- moment - 2.29.4 - used for dates transformations
 
 ## `Future features`
 
@@ -64,7 +64,7 @@ Launches the test runner.
 
 ## `Future improvements`
 
-- More tests
+- Testing: Better code coverage
 - Better styling
 - Add favicon
 

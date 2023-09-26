@@ -76,6 +76,14 @@ function FiveDaysWeather({ cityName, fiveDaysWeatherData }) {
         }
     }
 
+    const removeCursor = () => {
+        if (currentLocation.pathname === "/") {
+            return "no-cursor";
+        }
+
+        return "";
+    }
+
     return <>
         <div className='five-days-forecast-wrapper'>
             <h2>{cityName} - 5 days weather forecast</h2>
@@ -83,7 +91,7 @@ function FiveDaysWeather({ cityName, fiveDaysWeatherData }) {
                 {filterFiveDaysWeather().map((day, i) => (
                     <div
                         key={Math.random() + 1}
-                        className={`${i === isDetailedViewActivate ? "active-box" : ""} weather-box`}
+                        className={`${i === isDetailedViewActivate ? "active-box" : ""} weather-box ${removeCursor()}`}
                         onClick={(e) => showHourlyForecastHandler(e, i, day)}
                         data-testid="weather-box"
                     >

@@ -12,3 +12,7 @@
 .active-box{
     border: 4px solid #a09797;
 }
+
+.no-cursor{
+    cursor: initial;
+}

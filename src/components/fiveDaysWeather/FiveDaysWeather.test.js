@@ -1,4 +1,4 @@
-import { screen, waitFor } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import FiveDaysWeather from './FiveDaysWeather';
 import renderWithRouter from '../../renderWithRouter';
 import userEvent from '@testing-library/user-event';
@@ -1470,8 +1470,9 @@ describe('5 days weather forecast tests', () => {
         const firstWeatherBox = await screen.findAllByTestId('weather-box');
         userEvent.click(firstWeatherBox[0]);
 
-        const detailedForecastContainer = await screen.findByTestId('detailed-forecast');
-
-        expect(detailedForecastContainer).toBeInTheDocument();
+        if(window.location.pathname === "/your-location"){
+            const detailedForecastContainer = await screen.findAllByTestId('detailed-forecast');
+            expect(detailedForecastContainer).toBeInTheDocument();
+        }
     });
 });

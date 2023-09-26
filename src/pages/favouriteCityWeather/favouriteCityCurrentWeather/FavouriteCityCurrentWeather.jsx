@@ -20,13 +20,17 @@ function FavouriteCityCurrentWeather() {
             </div>
             <div className="current-weather-data">
                 <h1>{FAVOURITE_CITY_NAME}</h1>
-                <img src={GET_WEATHER_ICON_URL(currentWeatherData.weather[0].icon)} alt="City weather icon" />
-                <div className="text-div">Feels Like: {currentWeatherData.main.feels_like.toFixed(0)}°C</div>
-                <div className="text-div">Humidity: {currentWeatherData.main.humidity}</div>
-                <div className="text-div">Min/Max temperatures: {currentWeatherData.main.temp_min.toFixed(0)}°C / {currentWeatherData.main.temp_max.toFixed(0)}°C</div>
-                <div className="text-div">Wind Speed: {currentWeatherData.wind.speed}</div>
-                <div className="text-div">Sunrise: {convertUnixToHumanReadableHours(currentWeatherData.sys.sunrise)}</div>
-                <div className="text-div">Sunset: {convertUnixToHumanReadableHours(currentWeatherData.sys.sunset)}</div>
+                <div className='main-temp'>
+                    <img src={GET_WEATHER_ICON_URL(currentWeatherData.weather[0].icon)} alt="City weather icon" />
+                    <div className="weather-data-temp">
+                        {currentWeatherData.main.feels_like.toFixed(0)}°C
+                    </div>
+                </div>
+                <div className="weather-data">Humidity: {currentWeatherData.main.humidity}</div>
+                <div className="weather-data">Min/Max temperatures: {currentWeatherData.main.temp_min.toFixed(0)}°C / {currentWeatherData.main.temp_max.toFixed(0)}°C</div>
+                <div className="weather-data">Wind Speed: {currentWeatherData.wind.speed}</div>
+                <div className="weather-data">Sunrise: {convertUnixToHumanReadableHours(currentWeatherData.sys.sunrise)}</div>
+                <div className="weather-data">Sunset: {convertUnixToHumanReadableHours(currentWeatherData.sys.sunset)}</div>
             </div>
         </div>
     )

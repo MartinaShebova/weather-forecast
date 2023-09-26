@@ -4,6 +4,10 @@
     align-items: center;
 }
 
+.current-weather-data h1{
+    margin-bottom: 20px;
+}
+
 .current-weather-data{
     margin-left: 20px;
 }
@@ -18,4 +22,15 @@
     width: 100%; /* Use the full width of the circle */
     height: 100%; /* Use the full height of the circle */
     object-fit: cover; /* Maintain aspect ratio and cover the circle */
+}
+
+.main-temp{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.main-temp .weather-data-temp{
+    font-size: 30px;
+    font-weight: 600;
+    color: #000000;
 }

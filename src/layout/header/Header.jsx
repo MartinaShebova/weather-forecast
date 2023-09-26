@@ -16,11 +16,6 @@ function Header() {
                             Your location
                         </NavLink>
                     </li>
-                    <li>
-                        <NavLink to="/about" activeClassName="active-link">
-                            About
-                        </NavLink>
-                    </li>
                 </ul>
             </nav>
         </header>

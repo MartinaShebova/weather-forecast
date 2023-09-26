@@ -1,6 +1,5 @@
-/* src/Footer.css */
 footer {
-    background-color: #a09797;
+    background: #a09797;
     color: white;
     padding: 20px 0;
     text-align: center;
@@ -9,11 +8,4 @@ footer {
 
 footer p {
     margin: 0;
-}
-
-/* Style the copyright notice */
-footer p::before {
-    content: "\00a9";
-    /* Unicode for the copyright symbol */
-    margin-right: 5px;
 }

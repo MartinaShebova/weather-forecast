@@ -9,6 +9,6 @@ describe('Header tests', () => {
 
         //Assert
         const listOfNavElements = screen.getAllByRole('link');
-        expect(listOfNavElements).toHaveLength(3);
+        expect(listOfNavElements).toHaveLength(2);
     });
 });

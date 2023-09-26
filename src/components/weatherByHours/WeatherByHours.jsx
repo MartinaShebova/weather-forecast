@@ -21,7 +21,7 @@ function WeatherByHours({ fiveDaysWeatherData, date }) {
         return currentDayInfo;
     }
 
-    return <div className="detailed-forecast-wrapper">
+    return <div className="detailed-forecast-wrapper" data-testid="detailed-forecast">
         {retrieveDataForCurrentDay().map(info => {
             return <div key={Math.random() + 1} className="detailed-box">
                 <div className="weather-icon">

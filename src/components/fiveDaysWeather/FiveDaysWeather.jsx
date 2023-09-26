@@ -76,7 +76,7 @@ function FiveDaysWeather({ cityName, fiveDaysWeatherData, showHourlyForecast }) 
     return <>
         <div className='five-days-forecast-wrapper'>
             <h2>{cityName} - 5 days weather forecast</h2>
-            <div className="forecast-container">
+            <ul className="forecast-container">
                 {filterFiveDaysWeather().map((day, i) => (
                     <div
                         key={Math.random() + 1}
@@ -86,6 +86,7 @@ function FiveDaysWeather({ cityName, fiveDaysWeatherData, showHourlyForecast }) 
                             showHourlyForecastHandler(e);
                             setIsDetailedViewActivate(i);
                         }}
+                        data-testid="weather-box"
                     >
                         <WeatherInfoBox
                             iconName={day.icon}
@@ -96,7 +97,7 @@ function FiveDaysWeather({ cityName, fiveDaysWeatherData, showHourlyForecast }) 
                         />
                     </div>
                 ))}
-            </div>
+            </ul>
         </div>
         {showByHours && <WeatherByHours date={dayDate} fiveDaysWeatherData={fiveDaysWeatherData} />}
     </>
